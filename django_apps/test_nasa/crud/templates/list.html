@@ -1,0 +1,3 @@
+{% for nasa_comment in nasa_comments %}
+    <a href="/nasa/{{ nasa_comment.id }}">{{ nasa_comment.comment }}</a>
+{% endfor %}

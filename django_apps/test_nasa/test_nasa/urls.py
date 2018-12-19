@@ -19,8 +19,10 @@ from crud import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/nasa/<int:id>', views.get_comment),
-    path('api/nasa/update/<int:id>', views.update_comment),
-    path('api/nasa/delete/<int:id>', views.delete_comment),
-    path('api/nasa/create/', views.create_comment, 'create_comment'),
+    path('nasa/', views.list_comments),
+    path('nasa/<int:id>', views.get_comment),
+    path('nasa/update/<int:id>', views.update_comment),
+    path('nasa/delete/<int:id>', views.delete_comment),
+    path('nasa/create/', views.create_comment, name = 'create_comment'),
+    path('nasa/pickdate/', views.pick_date, name = 'pick_date'),
 ]
