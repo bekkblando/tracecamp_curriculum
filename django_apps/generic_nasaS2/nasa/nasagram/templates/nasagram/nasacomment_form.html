@@ -1,5 +1,27 @@
-<img src = "{{ url }}"/>
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+{% extends 'header.html' %}
+{% block content %}
+    <img src = "{{ url }}"/>
+    <form method="post">{% csrf_token %}
+        <div class = "input-field">
+            Comments
+                {{ form.comments }}
+        </div>
+        <div class = "input-field">
+            Rating
+            {{ form.rating }}
+        </div>
+        {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field.errors }}
+            {{ hidden_field }}
+        {% endfor %}
+        <div class="switch">
+                <label>
+                    <i class="fas fa-dumpster-fire"></i>
+                {{ form.favorite }}
+                <span class="lever"></span>
+                Favorite
+                </label>
+        </div>
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

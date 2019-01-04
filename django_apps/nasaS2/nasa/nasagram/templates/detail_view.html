@@ -1,15 +1,24 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<img src="{{ nasa_comment.url }}"/>
-<p>
-    {{ nasa_comment.comment }}
-    <div>
-        {{ nasa_comment.rating }}/5
+<div class="row">
+        <div class="col s12 m12">
+            <div class="card">
+                <div class="card-image">
+                <img src="{{ object.url }}">
+                <span class="card-title">       
+                    {% if nasa_comment.favorite %}
+                        <i class="far fa-thumbs-up"></i>
+                    {% else %}
+                        <i class="far fa-thumbs-down"></i>
+                    {% endif %}
+                </span>
+                </div>
+                <div class="card-content">
+                <p>{{ object.comments }}</p>
+                </div>
+                <div class="card-action">
+                <a href="/nasa/detail/{{object.id}}">Visit Me!</a>
+                <a href="/nasa/delete/{{object.id}}">Delete Me!</a>
+            </div>
+        </div>
     </div>
-    <div>
-        {% if nasa_comment.favorite %}
-            <i class="far fa-thumbs-up"></i>
-        {% else %}
-            <i class="far fa-thumbs-down"></i>
-        {% endif %}
-    </div>
-</p>
+</div>

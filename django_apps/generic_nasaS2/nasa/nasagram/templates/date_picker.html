@@ -1,6 +1,9 @@
-<form action="{% url 'nasa_comment_create' %}" method="GET">
-    <label for="start">Nasa Picture Date:</label>
+{% extends 'header.html' %}
+{% block content %}
+    <form action="{% url 'nasa_comment_create' %}" method="GET">
+        <label for="start">Nasa Picture Date:</label>
 
-    <input type="date" name="date_selected">
-    <input type="submit" value="Find Picture">
-</form>
+        <input type="date" class="datepicker" name="date_selected">
+        <button class="waves-effect waves-light btn blue lighten-2" type="submit">Find Picture <i class="fas fa-satellite"></i></button>
+    </form>
+{% endblock %}

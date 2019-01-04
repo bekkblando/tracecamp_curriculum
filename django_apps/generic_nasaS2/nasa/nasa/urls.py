@@ -23,11 +23,11 @@ urlpatterns = [
 
     # CRUD URLS
     path('nasa/create/comment', views.NasaCommentCreateView.as_view(), name = "nasa_comment_create"),
-    path('nasa/list', views.NasaCommentListView.as_view(), name = 'nasa_comment_list'),
+    path('', views.NasaCommentListView.as_view(), name = 'nasa_comment_list'),
     path('nasa/detail/<int:pk>', views.NasaCommentDetailView.as_view(), name = "nasa_comment_detail"),
-    path('nasa/delete/<int:pk>', views.NasaCommentDeleteView.as_view()),
+    path('nasa/delete/<int:pk>', views.NasaCommentDeleteView.as_view(), name = "nasa_comment_delete"),
     path('nasa/update/<int:pk>', views.NasaCommentUpdateView.as_view()),
 
     # Custom
-    path('nasa/datepicker', views.DatePickerTemplateView.as_view()),
+    path('nasa/datepicker', views.DatePickerTemplateView.as_view(), name = 'datepicker'),
 ]

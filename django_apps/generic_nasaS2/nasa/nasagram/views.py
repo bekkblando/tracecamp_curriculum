@@ -7,6 +7,7 @@ from nasagram.form.forms import NasaCommentForm
 import requests
 
 # Create your views here.
+
 class DatePickerTemplateView(TemplateView):
     template_name = "date_picker.html"
 
