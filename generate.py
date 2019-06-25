@@ -8,6 +8,6 @@ delta = datetime.timedelta(days=1)
 while d <= end_date:
     if(d.weekday() != 6):
         print(d.strftime("%Y-%m-%d"))
-        # os.mkdir(d.strftime("%Y-%m-%d"))
+        os.mkdir(d.strftime("%Y-%m-%d"))
         open(f'{d.strftime("%Y-%m-%d")}/ReadMe.md', 'w')
     d += delta
