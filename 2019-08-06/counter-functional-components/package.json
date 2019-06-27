@@ -1,5 +1,5 @@
 {
-  "name": "live-code-functional-components",
+  "name": "counter-functional-components",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
