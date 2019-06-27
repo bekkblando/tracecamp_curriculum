@@ -33,8 +33,6 @@ const Apod = ({ match }) => {
   }, [date]);
 
   let content;
-  if (loading) content = 'Loading…';
-  if (error) content = 'Error!';
   if (data)
     content = (
       <React.Fragment>
@@ -49,6 +47,8 @@ const Apod = ({ match }) => {
         <p style={style}>{data.explanation}</p>
       </React.Fragment>
     );
+  if (loading) content = 'Loading…';
+  if (error) content = 'Error!';
 
   return <div>{content}</div>;
 };
