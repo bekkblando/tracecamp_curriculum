@@ -7,8 +7,8 @@ import DatePicker from 'components/DatePicker/DatePicker';
 import Apod from 'components/Apod/Apod';
 
 const App = ({ location, history }) => {
-  const path = `/apod/${today}`;
-  if (location.pathname === '/') history.push(path);
+  if (location.pathname === '/')
+    history.push(`/apod/${today}`);
 
   return (
     <React.Fragment>
