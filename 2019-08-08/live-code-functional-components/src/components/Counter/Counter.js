@@ -1,5 +1,5 @@
 import React from 'react';
-import DisplayCount from 'components/DisplayCount/DisplayCount';
+import DisplayCount from 'components/DisplayCounter/DisplayCounter';
 
 const Counter = () => {
   const [counter, setCounter] = React.useState(0);
