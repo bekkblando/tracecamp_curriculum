@@ -7,9 +7,3 @@ const App = () => (
   </React.Fragment>
 );
 export default App;
-
-// export class AppClass extends React.Component {
-//   render() {
-//     return <TodoList />;
-//   }
-// }
