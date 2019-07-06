@@ -10,7 +10,7 @@ All prework should be listed here:
 
 ## JS:
 
-## Enviorment
+## Environment
 * Install Slack
   * Connect to [TRACE Camp Slack](https://join.slack.com/t/tracecamp/shared_invite/enQtNjc1MTUwODIxMjgyLWY0M2EwMjZmZjBmZDNjYzVhYzM5NWYzZTFjNGNlNGUxZDY4YTg1NGJlMGIyMGZmYTUxNTQ4ZGM5OGQ0ZDMyZmY)
 * Install Python 3
