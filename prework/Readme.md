@@ -11,9 +11,11 @@ All prework should be listed here:
 ## JS:
 
 ## Environment
-* Install Slack
-  * Connect to [TRACE Camp Slack](https://join.slack.com/t/tracecamp/shared_invite/enQtNjc1MTUwODIxMjgyLWY0M2EwMjZmZjBmZDNjYzVhYzM5NWYzZTFjNGNlNGUxZDY4YTg1NGJlMGIyMGZmYTUxNTQ4ZGM5OGQ0ZDMyZmY)
-* Install Python 3
-* Install NodeJS
-* Install Git
+* Connect to [TRACE Camp Slack](https://join.slack.com/t/tracecamp/shared_invite/enQtNjc1MTUwODIxMjgyLWY0M2EwMjZmZjBmZDNjYzVhYzM5NWYzZTFjNGNlNGUxZDY4YTg1NGJlMGIyMGZmYTUxNTQ4ZGM5OGQ0ZDMyZmY)
+  * (Optional) Install [Slack](https://slack.com/downloads/)
+* Install [Python 3](https://www.python.org/downloads/)
+* Install [NodeJS](https://nodejs.org/en/)
+* Install [Git](https://git-scm.com/downloads)
+  * (Optional) Install [Github Desktop](https://desktop.github.com/)
+* Install [Postman](https://www.getpostman.com/downloads/)
 * (Windows) Install Windows Subsystem for Linux (WSL)
