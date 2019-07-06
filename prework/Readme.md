@@ -7,8 +7,13 @@ All prework should be listed here:
 * https://www.youtube.com/watch?v=ol_UCWox9kc
 
 ## Python
+* https://www.learnpython.org/
+    * The "Learn the Basics Section"
 
 ## JS:
+* https://www.learn-js.org/
+    * The "Learn the Basics Section"
+
 
 ## Environment
 * Connect to [TRACE Camp Slack](https://join.slack.com/t/tracecamp/shared_invite/enQtNjc1MTUwODIxMjgyLWY0M2EwMjZmZjBmZDNjYzVhYzM5NWYzZTFjNGNlNGUxZDY4YTg1NGJlMGIyMGZmYTUxNTQ4ZGM5OGQ0ZDMyZmY)
@@ -19,3 +24,4 @@ All prework should be listed here:
   * (Optional) Install [Github Desktop](https://desktop.github.com/)
 * Install [Postman](https://www.getpostman.com/downloads/)
 * (Windows) Install Windows Subsystem for Linux (WSL)
+
