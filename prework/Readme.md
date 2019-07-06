@@ -8,5 +8,12 @@ Git:
 
 Python:
 
+https://www.learnpython.org/
+
+The "Learn the Basics Section"
+
 JS:
 
+https://www.learn-js.org/
+
+The "Learn the Basics Section"
