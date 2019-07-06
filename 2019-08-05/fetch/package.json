@@ -1,0 +1,18 @@
+{
+  "name": "fetch",
+  "version": "0.0.0",
+  "description": "Fetch data from an API",
+  "main": "./src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "watch": "nodemon ."
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chalk": "^2.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

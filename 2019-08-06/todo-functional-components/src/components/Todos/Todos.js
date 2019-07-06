@@ -14,12 +14,13 @@ const Todos = () => {
   const onAdd = () => {
     if (todo) {
       const id = ObjectId().toHexString();
-      setTodos(
-        todos.concat({
+      setTodos([
+        ...todos,
+        {
           text: todo,
           id: id,
-        }),
-      );
+        },
+      ]);
       setTodo('');
     }
   };
