@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Index from './components/Index';
+import Update from './components/Update';
 import Create from './components/Create';
 import List from './components/List';
 import Detail from './components/Detail';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/create/" component={Create} />
           <Route path="/list/" component={List} />
           <Route path="/detail/:id" component={Detail} />
+          <Route path="/update/:id" component={Update} />
         </div>
       </Router>
     </div>

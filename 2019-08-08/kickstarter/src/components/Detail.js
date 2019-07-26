@@ -1,5 +1,6 @@
 import React from 'react';
 import kick_api from '../apiService';
+import { Link } from "react-router-dom";
 
 export class Detail extends React.Component {
 
@@ -28,6 +29,7 @@ export class Detail extends React.Component {
         return(
           <div>
             {this.state.kickstarter.blurb}
+            <Link to={`/update/${this.state.kickstarter.id}`}>Update</Link>
           </div>
           );
       }
