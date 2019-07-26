@@ -1,5 +1,6 @@
 import React from 'react';
 import kick_api from '../apiService';
+import { Link } from "react-router-dom";
 
 export class List extends React.Component {
 
@@ -9,8 +10,8 @@ export class List extends React.Component {
         kickstarters: []
       }
 
-      kick_api.list().then((data) => {
-        console.log(data)
+      kick_api.list().then((res) => {
+        this.setState({kickstarters: res.data})
       })
     }
 
@@ -18,7 +19,7 @@ export class List extends React.Component {
       return (
         <div>
           { this.state.kickstarters.map( (item, i) => {
-            return <div key={i}>Here is the list</div>
+            return <Link key={`link_${i}`} to={`/detail/${item.id}`} ><div key={`div_${i}`}>{item.blurb}</div></Link>
           })}
         </div>
       );
