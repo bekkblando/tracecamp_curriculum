@@ -25,7 +25,7 @@ SECRET_KEY = '+)f_mmv3^*#^f=*7ri*$=18b65kmj1ar!o&)3rr$_*(13_&n1@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kickstarter.6ky4yxx2m8.us-west-2.elasticbeanstalk.com', "localhost", "http://localhost:3000"]
 
 
 # Application definition

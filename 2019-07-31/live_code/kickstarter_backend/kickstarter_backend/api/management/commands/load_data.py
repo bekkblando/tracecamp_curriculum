@@ -11,7 +11,7 @@ class Command(BaseCommand):
         parser.add_argument('path', type=str)
 
     def handle(self, *args, **options):
-        self.stdout.write("loading data from: ", options['path'])
+        print("loading data from: ", options['path'])
         KickstarterCampaign.objects.all().delete()
         with open(options['path']) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')

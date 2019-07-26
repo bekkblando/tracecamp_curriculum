@@ -4,6 +4,7 @@ import './App.css';
 import Index from './components/Index';
 import Create from './components/Create';
 import List from './components/List';
+import Detail from './components/Detail';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" exact component={Index} />
           <Route path="/create/" component={Create} />
           <Route path="/list/" component={List} />
+          <Route path="/detail/:id" component={Detail} />
         </div>
       </Router>
     </div>
