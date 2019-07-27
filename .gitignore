@@ -1,10 +1,13 @@
+# Python
+__pycache__/
+env/
+
 .direnv
 .envrc
 .ipynb_checkpoints
 
-__pycache__/
-env/
-
+# VSCode Settings
+.vscode/
 
 
 # Node, Mac, Windows, Linux
