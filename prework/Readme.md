@@ -1,4 +1,4 @@
-All prework should be listed here:
+# Prework
 
 ## Git
 * Watch [Git Introduction Video Playlist](https://www.youtube.com/watch?v=9GKpbI1siow&list=PLpcSpRrAaOarEpNz71TSfNVd0eQmsZSgN)
