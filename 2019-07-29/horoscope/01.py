@@ -60,7 +60,7 @@ horoscopes = [
 ]
 
 def fortune():
-    return horoscopes[random.randint(0,len(horoscopes))]
+    return horoscopes[random.randint(0,len(horoscopes) - 1)]
 
 def main():
 
