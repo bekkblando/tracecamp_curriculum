@@ -21,3 +21,9 @@
     * This may be helpful for setting up keys: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
 * Then follow https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/single-container-docker.html
     * Specifically the section titled "Deploy a Container with a Dockerfile"
+    
+
+# Assignment
+
+* Kickstarter API Backend
+* Kickstarter API Backend Deployed on the elastic beanstalk
