@@ -26,4 +26,5 @@
 # Assignment
 
 * Kickstarter API Backend
+* Movie API Backend
 * Kickstarter API Backend Deployed on the elastic beanstalk
