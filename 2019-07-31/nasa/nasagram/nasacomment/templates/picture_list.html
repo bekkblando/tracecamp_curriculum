@@ -1,0 +1,8 @@
+{% for url in urls %}
+    <div>
+       <a href = "/nasacomment/create?picture_url={{ url }}">
+            Click Me
+            <img src="{{ url }}" />
+        </a>
+    </div>
+{% endfor %}
