@@ -1,10 +1,14 @@
-<nav>
-    Home Page
-</nav>
-
 {% for comment in comments %}
     
     <img src = "{{ comment.image }}" />
     {{ comment }}
     
 {% endfor %}
+
+{% for card in cards %}
+
+    Card: {{ card }}
+
+{% endfor %}
+
+{{ first_name }}

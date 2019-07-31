@@ -8,7 +8,8 @@ from datetime import datetime, date, time, timedelta
 def view_home(request):
     # print("This is the home page", request)
     comments = Comment.objects.all()
-    return render(request, 'very_nice_homepage.html', context = {"comments": comments})
+    name = "Bekk"
+    return render(request, 'very_nice_homepage.html', context = {"comments": comments, "cards": [0, 1, 2], "first_name": name})
 
 
 def picture_list(request):
