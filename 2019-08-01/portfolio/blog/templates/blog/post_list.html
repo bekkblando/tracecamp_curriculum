@@ -1,0 +1,27 @@
+{% extends "home.html" %}
+{% load static %}
+{% block body %}
+  <section class="text-center masthead">
+    <div class="container">
+
+    <h1 class="masthead-heading text-uppercase mb-0">Articles</h1>
+    <ul>
+    {% for article in object_list %}
+
+    <div class="card" style="width: 18rem;">
+            <img src="{% static 'img/mountains.jpeg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{article.title}}</h5>
+              <p class="card-text">{{ article.body }}</p>
+              <a href="/blog/update/{{article.id}}" class="btn btn-primary">Edit</a>
+              <a href="/blog/delete/{{article.id}}" class="btn btn-primary">Delete</a>
+            </div>
+          </div>
+    </div>
+    {% empty %}
+        <li>No articles yet.</li>
+    {% endfor %}
+    </ul>
+    </div>
+  </section>
+{% endblock %}

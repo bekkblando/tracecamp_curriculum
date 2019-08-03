@@ -1,0 +1,16 @@
+{% extends 'home.html' %}
+{% block body %}
+    <section class="masthead">
+        <div class="container">
+            <form method="post">{% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <textarea name="title" cols="40" rows="10" required="" id="id_title" class="form-control" >{{ form.title.value|default:"nothing" }}</textarea>
+                    <label for="body">Body</label>
+                    <textarea name="body" cols="40" rows="10" class="form-control" required="" id="id_body">{{ form.body.value|default:"nothing"}}</textarea>
+                    <input class = "form-control" type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

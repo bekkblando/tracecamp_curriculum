@@ -39,3 +39,6 @@ def create(request):
             rating = request.POST.get('rating', '')
         )
         return HttpResponse("Created")
+
+def retreive_data(request):
+    requests.get(url)
