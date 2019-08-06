@@ -36,7 +36,7 @@ const ApodThumbnail = ({ date, page = 0 }) => {
           <img
             style={style}
             src={`http://i3.ytimg.com/vi/${media.youtubeId}/hqdefault.jpg`}
-            alt=""
+            alt={data.explanation}
             id={data.date}
           />
         ) : null}
