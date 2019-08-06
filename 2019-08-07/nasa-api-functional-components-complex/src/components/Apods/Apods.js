@@ -31,15 +31,21 @@ const Apods = ({ location, history }) => {
   const clearCache = () =>
     localforage.clear().then(() => console.log('DATABASE CLEARED'));
 
+  const increment = () => {
+    setPage(page => page + 1);
+  };
+
+  const decrement = () => {
+    setPage(page => (page > 0 ? page - 1 : 0));
+  };
+
   return (
     <React.Fragment>
       <Route path={'/apods'} component={DatePicker} />
 
       <br />
 
-      <button onClick={() => setPage(page => (page > 0 ? page - 1 : 0))}>
-        Previous
-      </button>
+      <button onClick={decrement}>Previous</button>
       <input
         type="number"
         min={0}
@@ -48,7 +54,7 @@ const Apods = ({ location, history }) => {
         onChange={e => setPage(Number(e.target.value))}
         value={page}
       />
-      <button onClick={() => setPage(page => page + 1)}>Next</button>
+      <button onClick={increment}>Next</button>
       <button onClick={clearCache}>Clear Cache</button>
 
       <br />
@@ -59,11 +65,9 @@ const Apods = ({ location, history }) => {
 
       <br />
 
-      <button onClick={() => setPage(page => (page > 0 ? page - 1 : 0))}>
-        Previous
-      </button>
+      <button onClick={decrement}>Previous</button>
       {page}
-      <button onClick={() => setPage(page => page + 1)}>Next</button>
+      <button onClick={increment}>Next</button>
     </React.Fragment>
   );
 };
