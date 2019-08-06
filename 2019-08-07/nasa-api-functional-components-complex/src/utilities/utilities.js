@@ -30,5 +30,9 @@ export const getWeek = (page = 0) => {
 };
 
 export const getWeekDifference = date => {
-  return moment().diff(moment(date).format('YYYY-MM-DD'), 'week');
+  const days = moment().diff(moment(date).format('YYYY-MM-DD'), 'day');
+  const weeks = moment().diff(moment(date).format('YYYY-MM-DD'), 'week');
+  const remainder = days % 7;
+  if (remainder) return weeks + 1;
+  return weeks;
 };

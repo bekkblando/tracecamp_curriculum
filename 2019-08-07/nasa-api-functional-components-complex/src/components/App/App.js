@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 import { today } from 'utilities/utilities';
 import Apods from 'components/Apods/Apods';
-import Apod from 'components/Apod/Apod';
+import ApodDetail from 'components/ApodDetail/ApodDetail';
 import DatePicker from 'components/DatePicker/DatePicker';
 
 const App = ({ location, history }) => {
@@ -14,7 +14,7 @@ const App = ({ location, history }) => {
     <React.Fragment>
       <Route path={'/apods'} exact component={Apods} />
       <Route path={'/apods/:date'} component={DatePicker} />
-      <Route path={'/apods/:date'} component={Apod} />
+      <Route path={'/apods/:date'} component={ApodDetail} />
     </React.Fragment>
   );
 };

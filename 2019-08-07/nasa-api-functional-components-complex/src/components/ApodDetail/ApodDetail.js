@@ -8,21 +8,17 @@ const style = {
   maxWidth: '100%',
 };
 
-const Apod = ({ location, match, formattedDate }) => {
+const ApodDetail = ({ location, match, date: propsDate }) => {
   // set date based on priority
-  const propsDate = formattedDate || null;
   const matchDate = match ? match.params.date : null;
   const date = propsDate || matchDate || today;
 
-  const { loading, error, data: datum } = useNasa(date);
+  const { loading, error, data, media } = useNasa(date);
 
   const page = location.state ? location.state.page : getWeekDifference(date);
 
   let content;
-  if (datum) {
-    const isYoutube = new URL(datum.url).hostname === 'www.youtube.com';
-    const isImage = !isYoutube && true;
-
+  if (data) {
     content = (
       <React.Fragment>
         <Link
@@ -37,23 +33,23 @@ const Apod = ({ location, match, formattedDate }) => {
           Back
         </Link>
         <h1>
-          <em>{datum.title}</em>
+          <em>{data.title}</em>
         </h1>
-        {isYoutube ? (
+        {media.isYoutube ? (
           <iframe
             width="100%"
             height="315"
-            src={datum.url}
+            src={data.url}
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            title={datum.title}
+            title={data.title}
           />
         ) : null}
-        {isImage ? (
-          <img src={datum.url} alt={datum.explanation} style={style} />
+        {media.isImage ? (
+          <img src={data.url} alt={data.explanation} style={style} />
         ) : null}
-        <p style={style}>{datum.explanation}</p>
+        <p style={style}>{data.explanation}</p>
       </React.Fragment>
     );
   }
@@ -62,4 +58,4 @@ const Apod = ({ location, match, formattedDate }) => {
 
   return <div style={style}>{content}</div>;
 };
-export default Apod;
+export default ApodDetail;
