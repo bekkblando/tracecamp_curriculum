@@ -9,21 +9,22 @@ const useNasa = date => {
   const [error, setError] = React.useState(false);
 
   React.useEffect(() => {
-    setError(false);
-    setLoading(true);
-    axios
-      .get(
-        `https://api.nasa.gov/planetary/apod?date=${date}&api_key=${API_KEY}`,
-      )
-      .then(response => {
+    const getData = async date => {
+      try {
+        setError(false);
+        setLoading(true);
+        const response = await axios.get(
+          `https://api.nasa.gov/planetary/apod?date=${date}&api_key=${API_KEY}`,
+        );
         setData(response.data);
         setLoading(false);
-      })
-      .catch(error => {
+      } catch (error) {
         console.log(error);
         setLoading(false);
         setError(true);
-      });
+      }
+    };
+    getData(date);
   }, [date]);
 
   return {
