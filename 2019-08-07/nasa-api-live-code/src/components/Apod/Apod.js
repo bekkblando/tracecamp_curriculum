@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Apod() {
-  return 'Hello World';
-}
+const Apod = () => {
+  return 'Hello from Apod';
+};
 
 export default Apod;
