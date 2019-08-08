@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getKick } from "../apiservice";
+import { NavLink } from "react-router-dom";
 
 function Detail(props) {
   const [kick, setKick] = useState({});
@@ -8,7 +9,6 @@ function Detail(props) {
     const id = props.match.params.id;
     getKick(id).then(res => {
       setKick(res.data);
-      console.log(res.data);
     });
   }, []);
 
@@ -18,6 +18,9 @@ function Detail(props) {
       <h3>Blurb: {kick.blurb}</h3>
       <h3>Backers: {kick.backers}</h3>
       <h3>Pledged: {kick.pledged}</h3>
+      <NavLink to={`/update/${kick.id}`} className="btn btn-primary">
+        Update Kickstarter{" "}
+      </NavLink>
     </div>
   );
 }

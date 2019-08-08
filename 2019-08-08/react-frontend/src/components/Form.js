@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useForm from "../hooks/useForm";
 import { createKick } from "../apiservice";
 
 function Form(props) {
-  const { values, handleSubmit, handleChange } = useForm(
+  const { values, handleSubmit, handleChange, setValues } = useForm(
     {
       blurb: null,
       backers: 0,
@@ -13,15 +13,25 @@ function Form(props) {
     sendData
   );
 
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    console.log(props);
+    if (props.form_data) {
+      setValues(props.form_data);
+      setLoading(false);
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
   function sendData() {
     const payload = values;
     const created = new Date();
     payload["created"] = created.toISOString();
-    createKick(payload).then(res => {
-      console.log(res);
-    });
+    console.log();
   }
-  return (
+
+  const theForm = (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label>Blurb</label>
@@ -57,6 +67,7 @@ function Form(props) {
       <input type="submit" value="Submit" className="form-control" />
     </form>
   );
+  return loading ? <div>Loading</div> : theForm;
 }
 
 export default Form;
