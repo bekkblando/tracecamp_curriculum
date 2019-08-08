@@ -2,7 +2,7 @@ import React from "react";
 import useForm from "../hooks/useForm";
 
 function Form(props) {
-  const { value, handleSubmit, handleChange } = useForm();
+  const { values, handleSubmit, handleChange } = useForm();
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">

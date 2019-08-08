@@ -22,3 +22,5 @@ const useForm = (initialValues, callback) => {
     handleChange
   };
 };
+
+export default useForm;
