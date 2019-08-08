@@ -3,7 +3,6 @@ import { getKick } from "../apiservice";
 
 function Detail(props) {
   const [kick, setKick] = useState({});
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const id = props.match.params.id;
