@@ -1,11 +1,19 @@
 import React from "react";
+import useForm from "../hooks/useForm";
 
 function Form(props) {
+  const { value, handleSubmit, handleChange } = useForm();
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label>Blurb</label>
-        <input type="text" className="form-control" />
+        <input
+          type="text"
+          className="form-control"
+          name="blurb"
+          value={values.blurb}
+          onChange={handleChange}
+        />
       </div>
       <div className="form-group">
         <label>Backers</label>
