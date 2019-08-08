@@ -11,4 +11,12 @@ function listKick() {
   return axios.get(`${API_URL}/`, config);
 }
 
-export { getKick, listKick };
+function createKick(payload) {
+  return axios.post(`${API_URL}/`, payload);
+}
+
+function updateKick(payload, id) {
+  return axios.put(`${API_URL}/${id}`, payload);
+}
+
+export { getKick, listKick, createKick, updateKick };
