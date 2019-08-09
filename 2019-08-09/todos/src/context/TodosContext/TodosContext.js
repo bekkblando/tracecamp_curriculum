@@ -1,21 +1,21 @@
 import React from 'react';
 
-const value = {
-  userid: 1234,
-  username: 'Bob',
-  todoLists: [
-    {
-      id: 1234,
-      name: 'Tomorrow',
-      todoItems: [
-        {
-          text: 'Clean the Apartment',
-          id: 1234,
-        },
-      ],
-    },
-  ],
-};
+// const value = {
+//   userid: 1234,
+//   username: 'Bob',
+//   todoLists: [
+//     {
+//       id: 1234,
+//       name: 'Tomorrow',
+//       todoItems: [
+//         {
+//           text: 'Clean the Apartment',
+//           id: 1234,
+//         },
+//       ],
+//     },
+//   ],
+// };
 
 const actionTypes = {
   ADD_LIST: 'ADD_LIST',
@@ -38,7 +38,7 @@ const clearList = (state, action) => {
   return state;
 };
 const addTodo = (state, action) => {
-  console.log(addTodo);
+  console.log('addTodo');
   return state;
 };
 const removeTodo = (state, action) => {
@@ -47,6 +47,7 @@ const removeTodo = (state, action) => {
 };
 
 const reducer = (state, action) => {
+  console.log('reducer');
   switch (action.type) {
     case actionTypes.ADD_LIST:
       return addList(state, action);
@@ -63,23 +64,35 @@ const reducer = (state, action) => {
   }
 };
 
-const Todos = () => {
-  const [todos, setTodos] = React.useState();
-  const [state, dispatch] = React.useReducer(reducer);
-
-  dispatch({
-    action: actionTypes.ADD_TODO,
-    payload: {
-      text: 'Clean the apartment',
-      id: 1234,
-    },
-  });
-  return '';
+const initialState = {
+  todos: 'todos',
 };
 
 const TodosContext = React.createContext();
 export default TodosContext;
 
 export const TodosProvider = props => {
-  return <TodosContext.Provider>{props.children}</TodosContext.Provider>;
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  // const setMyTodos = () => {
+  //   console.log('setMyTodos');
+  //   const action = {
+  //     type: 'ADD_LIST',
+  //     payload: {
+  //       new: 'new',
+  //     },
+  //   };
+  //   dispatch(action);
+  // };
+
+  const value = {
+    state,
+    dispatch,
+  };
+
+  return (
+    <TodosContext.Provider value={value}>
+      {props.children}
+    </TodosContext.Provider>
+  );
 };
