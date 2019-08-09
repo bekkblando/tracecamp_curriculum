@@ -11,11 +11,17 @@ function Update(props) {
       setKick(res.data);
     });
   }, []);
+
   return (
     <div className="container">
-      <h1 className="text-center">Update KickStarter {kick.id}</h1>
-      {console.log(kick)}
-      <Form form_data={kick} />
+      {kick.id ? (
+        <div>
+          <h1 className="text-center">Update KickStarter {kick.id}</h1>
+          <Form form_data={kick} form_id={kick.id} />
+        </div>
+      ) : (
+        <h1>Loading</h1>
+      )}
     </div>
   );
 }

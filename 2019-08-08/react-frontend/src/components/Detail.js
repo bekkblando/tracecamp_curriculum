@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { getKick } from "../apiservice";
+import { getKick, deleteKick } from "../apiservice";
 import { NavLink } from "react-router-dom";
 
 function Detail(props) {
   const [kick, setKick] = useState({});
+  const id = props.match.params.id;
 
   useEffect(() => {
-    const id = props.match.params.id;
     getKick(id).then(res => {
       setKick(res.data);
     });
   }, []);
+
+  function handleClick() {
+    deleteKick(id).then(res => {
+      console.log(res);
+      props.history.push(`/list/`); // Redirects to list
+    });
+  }
 
   return (
     <div className="container">
@@ -21,6 +28,9 @@ function Detail(props) {
       <NavLink to={`/update/${kick.id}`} className="btn btn-primary">
         Update Kickstarter{" "}
       </NavLink>
+      <button className="btn btn-danger" onClick={handleClick}>
+        Delete Kickstarter
+      </button>
     </div>
   );
 }

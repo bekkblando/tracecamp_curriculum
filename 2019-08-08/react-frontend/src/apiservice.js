@@ -16,7 +16,11 @@ function createKick(payload) {
 }
 
 function updateKick(payload, id) {
-  return axios.put(`${API_URL}/${id}`, payload);
+  return axios.put(`${API_URL}/${id}/`, payload);
 }
 
-export { getKick, listKick, createKick, updateKick };
+function deleteKick(id) {
+  return axios.delete(`${API_URL}/${id}`, config);
+}
+
+export { getKick, listKick, createKick, updateKick, deleteKick };
