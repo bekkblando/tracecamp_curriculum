@@ -1,9 +1,6 @@
 import React from 'react';
 
-// const value = {
-//   userid: 1234,
-//   username: 'Bob',
-//   todoLists: [
+// const value = [
 //     {
 //       id: 1234,
 //       name: 'Tomorrow',
@@ -15,8 +12,6 @@ import React from 'react';
 //       ],
 //     },
 //   ],
-// };
-
 const actionTypes = {
   ADD_LIST: 'ADD_LIST',
   REMOVE_LIST: 'REMOVE_LIST',
@@ -25,25 +20,88 @@ const actionTypes = {
   REMOVE_TODO: 'REMOVE_TODO',
 };
 
+// const action = {
+//   type: actionTypes.ADD_LIST,
+//   payload: {
+//     id: Math.random(),
+//     name: 'Done',
+//   },
+// };
+
 const addList = (state, action) => {
-  console.log('addList');
-  return state;
+  return [...state, action.payload];
 };
+
+// const action = {
+//   type: actionTypes.REMOVE_LIST,
+//   payload: {
+//     id,
+//   },
+// };
 const removeList = (state, action) => {
-  console.log('removeList');
-  return state;
+  return state.filter(todoList => todoList.id !== action.payload.id);
 };
+
+// const action = {
+//   type: actionTypes.CLEAR_LIST,
+//   payload: {
+//     id,
+//   },
+// };
 const clearList = (state, action) => {
-  console.log('clearList');
-  return state;
+  return state.map((todoList, index) => {
+    if (todoList.id !== action.payload.id) return todoList;
+
+    const emptyTodoList = {
+      ...state[index],
+      todoItems: [],
+    };
+    return emptyTodoList;
+  });
 };
+
+// const action = {
+//   type: actionTypes.ADD_TODO,
+//   payload: {
+//     listId,
+//     todo: {
+//       id: Math.random(),
+//       text: text,
+//     },
+//   },
+// };
+
 const addTodo = (state, action) => {
-  console.log('addTodo');
-  return state;
+  return state.map((todoList, index) => {
+    if (todoList.id !== action.payload.listId) return todoList;
+
+    const updatedTodoList = {
+      ...state[index],
+      todoItems: [...state[index].todoItems, action.payload.todo],
+    };
+    return updatedTodoList;
+  });
 };
+
+// const action = {
+//   type: actionTypes.REMOVE_TODO,
+//   payload: {
+//     listId,
+//     todoId,
+//   },
+// };
 const removeTodo = (state, action) => {
-  console.log('removeTodo');
-  return state;
+  return state.map((todoList, index) => {
+    if (todoList.id !== action.payload.listId) return todoList;
+
+    const updatedTodoList = {
+      ...state[index],
+      todoItems: state[index].todoItems.filter(
+        todoItem => todoItem.id !== action.payload.todoId,
+      ),
+    };
+    return updatedTodoList;
+  });
 };
 
 const reducer = (state, action) => {
@@ -64,9 +122,7 @@ const reducer = (state, action) => {
   }
 };
 
-const initialState = {
-  todos: 'todos',
-};
+const initialState = [];
 
 const TodosContext = React.createContext();
 export default TodosContext;
