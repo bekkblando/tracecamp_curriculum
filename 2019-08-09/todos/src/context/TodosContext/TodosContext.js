@@ -105,7 +105,6 @@ const removeTodo = (state, action) => {
 };
 
 const reducer = (state, action) => {
-  console.log('reducer');
   switch (action.type) {
     case actionTypes.ADD_LIST:
       return addList(state, action);
