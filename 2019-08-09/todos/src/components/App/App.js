@@ -2,89 +2,105 @@ import React from 'react';
 import TodosContext from 'context/TodosContext/TodosContext';
 
 const App = () => {
-  const { state, dispatch } = React.useContext(TodosContext);
+  const [todo, setTodo] = React.useState('');
+  const [todoList, setTodoList] = React.useState('');
+  const [selectedList, setSelectedList] = React.useState();
 
-  const onAddList = () => {
-    dispatch({
-      type: 'ADD_LIST',
-      payload: {
-        id: Math.random(),
-        name: 'My First List',
-        todoItems: [],
-      },
-    });
-  };
-
-  const onRemoveList = id => {
-    dispatch({
-      type: 'REMOVE_LIST',
-      payload: {
-        id,
-      },
-    });
-  };
-
-  const onAddListItem = listId => {
-    dispatch({
-      type: 'ADD_TODO',
-      payload: {
-        listId,
-        todo: {
-          text: 'Random Text',
-          id: Math.random(),
-        },
-      },
-    });
-  };
-
-  const onRemoveListItem = (listId, todoId) => {
-    dispatch({
-      type: 'REMOVE_TODO',
-      payload: {
-        listId,
-        todoId,
-      },
-    });
-  };
-
-  const onClearList = id => {
-    dispatch({
-      type: 'CLEAR_LIST',
-      payload: {
-        id,
-      },
-    });
-  };
+  const {
+    state: todoLists,
+    addList,
+    removeList,
+    addListItem,
+    removeListItem,
+  } = React.useContext(TodosContext);
 
   return (
-    <React.Fragment>
-      <button onClick={onAddList}>Add List</button>
-      <button onClick={() => onAddListItem(state[0].id)}>Add Todo</button>
-      <button onClick={() => onClearList(state[0].id)}>Clear List</button>
-      {state.map(todoList => (
-        <div key={todoList.id}>
-          {console.log(todoList)}
-          <div
-            key={todoList.id}
-            onClick={() => {
-              onRemoveList(todoList.id);
+    <div>
+      <label htmlFor="todo-list">Todo List: </label>
+      <input
+        id="todo-list"
+        type="text"
+        value={todoList}
+        onChange={event => setTodoList(event.target.value)}
+      />
+      <button onClick={() => addList(todoList)}>Add List</button>
+      <br />
+      {selectedList}
+
+      {todoLists.length ? (
+        <div>
+          <label htmlFor="todo">Todo: </label>
+          <input
+            id="todo"
+            type="text"
+            value={todo}
+            onChange={event => setTodo(event.target.value)}
+          />
+          <select
+            onChange={event => {
+              setSelectedList(event.target.value);
             }}
+            value={selectedList === todoList.id}
           >
+            {todoLists.map(todoList => (
+              <option key={todoList.id} value={todoList.id}>
+                {todoList.name}
+              </option>
+            ))}
+          </select>
+          <button onClick={() => addListItem(Number(selectedList), todo)}>
+            Add Todo
+          </button>
+          <br />
+        </div>
+      ) : null}
+      {todoLists.map(todoList => (
+        <div key={todoList.id}>
+          <div key={todoList.id} onClick={() => removeList(todoList.id)}>
             {todoList.name}
           </div>
-          {todoList.todoItems.map(todoItem => (
-            <div
-              key={todoItem.id}
-              onClick={() => onRemoveListItem(todoList.id, todoItem.id)}
-            >
-              {todoItem.text}
-            </div>
-          ))}
+          <div>
+            {todoList.todoItems.map(todoItem => (
+              <div
+                key={todoItem.id}
+                onClick={() => removeListItem(todoList.id, todoItem.id)}
+              >
+                {todoItem.text}
+              </div>
+            ))}
+          </div>
         </div>
       ))}
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
-    </React.Fragment>
+    </div>
   );
 };
 
 export default App;
+
+/* <React.Fragment>
+  <button onClick={addList}>Add List</button>
+  <button onClick={() => addListItem(state[0].id)}>Add Todo</button>
+  <button onClick={() => clearList(state[0].id)}>Clear List</button>
+  {state.map(todoList => (
+    <div key={todoList.id}>
+      {console.log(todoList)}
+      <div
+        key={todoList.id}
+        onClick={() => {
+          removeList(todoList.id);
+        }}
+      >
+        {todoList.name}
+      </div>
+      {todoList.todoItems.map(todoItem => (
+        <div
+          key={todoItem.id}
+          onClick={() => removeListItem(todoList.id, todoItem.id)}
+        >
+          {todoItem.text}
+        </div>
+      ))}
+    </div>
+  ))}
+  {<pre>{JSON.stringify(state, null, 2)}</pre>}
+</React.Fragment> */

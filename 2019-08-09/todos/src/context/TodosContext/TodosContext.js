@@ -72,6 +72,7 @@ const clearList = (state, action) => {
 // };
 
 const addTodo = (state, action) => {
+  console.log('action', action);
   return state.map((todoList, index) => {
     if (todoList.id !== action.payload.listId) return todoList;
 
@@ -123,7 +124,15 @@ const reducer = (state, action) => {
 
 const initialState = [];
 
-const TodosContext = React.createContext();
+const TodosContext = React.createContext({
+  state: {},
+  dispatch: () => {},
+  addList: todoListName => {},
+  removeList: id => {},
+  clearList: id => {},
+  addListItem: (listId, todoText) => {},
+  removeListItem: (listId, todoId) => {},
+});
 export default TodosContext;
 
 export const TodosProvider = props => {
@@ -143,6 +152,54 @@ export const TodosProvider = props => {
   const value = {
     state,
     dispatch,
+    addList: todoListName => {
+      dispatch({
+        type: actionTypes.ADD_LIST,
+        payload: {
+          id: Math.random(),
+          name: todoListName,
+          todoItems: [],
+        },
+      });
+    },
+    removeList: id => {
+      dispatch({
+        type: actionTypes.REMOVE_LIST,
+        payload: {
+          id,
+        },
+      });
+    },
+    clearList: id => {
+      dispatch({
+        type: actionTypes.CLEAR_LIST,
+        payload: {
+          id,
+        },
+      });
+    },
+    addListItem: (listId, todoText) => {
+      console.log(listId, todoText);
+      dispatch({
+        type: actionTypes.ADD_TODO,
+        payload: {
+          listId,
+          todo: {
+            text: todoText,
+            id: Math.random(),
+          },
+        },
+      });
+    },
+    removeListItem: (listId, todoId) => {
+      dispatch({
+        type: actionTypes.REMOVE_TODO,
+        payload: {
+          listId,
+          todoId,
+        },
+      });
+    },
   };
 
   return (
